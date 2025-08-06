@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
@@ -5,10 +6,11 @@ import { BackToHome } from "@/components/BackToHome";
 import { Pet } from "@/components/Pet";
 import { PetMood } from "@/types/pet";
 import { Button, Paper, Stack, Typography, Box } from "@mui/material";
-import { set } from "react-hook-form";
+
 import {
   Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import {Panel} from "@/components/Panel";
 
 const choices = [
   { name: "rock", img: "/rps/rock1.png" },
@@ -157,7 +159,15 @@ export const RockPaperScissors = () => {
 
   return (
     <div style={{ textAlign: "center" }}>
-        
+      <Panel
+      sx={{
+        width: 600,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 2,
+      }}
+    >
       <Box sx={{ width: 400, mx: "auto", mb: 1 }}>
         <Box sx={{ mb: 1 }}>
           <Pet mood={petMood} />
@@ -296,7 +306,7 @@ export const RockPaperScissors = () => {
     </Button>
   </DialogActions>
 </Dialog>
-
+</Panel>
     </div>
   );
 };
